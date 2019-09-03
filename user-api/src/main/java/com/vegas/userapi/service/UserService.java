@@ -1,5 +1,6 @@
 package com.vegas.userapi.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,19 +8,26 @@ import com.vegas.userapi.modeldto.User;
 import com.vegas.userapi.repository.UserEntity;
 import com.vegas.userapi.repository.UserRepository;
 
-@Service
+import java.util.Optional;
 
+@Service
+@RequiredArgsConstructor
 public class UserService {
-	@Autowired
-	UserRepository userRepository;
+	private final UserRepository userRepository;
 	public void saveUserData(User user) {
-		UserEntity userentity=new UserEntity();
+		UserEntity userWithMaxId = new UserEntity();
+		Optional<UserEntity> entityOpt = userRepository.findTop1OrOrderByIdDesc();
+		if(entityOpt.isPresent()){
+			userWithMaxId = entityOpt.get();
+		}
+		UserEntity userentity = new UserEntity();
+		userentity.setId(userWithMaxId.getId() + 1);
 		userentity.setName(user.getName());
 		userentity.setEmailAddress(user.getEmailAddress());
 		userentity.setAge(user.getAge());
 		userentity.setBodyType(user.getBodyType());
 		userentity.setHeightType(user.getHeightType());
-		useRepository.save();
+		userRepository.save(userentity);
 	}
 	
 }
