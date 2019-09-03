@@ -14,11 +14,12 @@ import java.util.Optional;
 public class UserService {
 	private final UserRepository userRepository;
 	public void saveUserData(User user) {
-		UserEntity userWithMaxId = new UserEntity();
-		Optional<UserEntity> entityOpt = userRepository.findTopOrderByIdDesc();
+		UserEntity userWithMaxId = userRepository.findTopByOrderByIdDesc();
+		/*Optional<UserEntity> entityOpt = userRepository.findTopByOrderByIdDesc();
 		if(entityOpt.isPresent()){
 			userWithMaxId = entityOpt.get();
-		}
+		}*/
+
 		UserEntity userentity = new UserEntity();
 		userentity.setId(userWithMaxId.getId() + 1);
 		userentity.setName(user.getName());

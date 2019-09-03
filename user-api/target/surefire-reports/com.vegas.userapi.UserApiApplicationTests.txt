@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.vegas.userapi.UserApiApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.177 s <<< FAILURE! - in com.vegas.userapi.UserApiApplicationTests
-contextLoads(com.vegas.userapi.UserApiApplicationTests)  Time elapsed: 0.004 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userService' defined in file [/Users/okamotomasahiro/rakuten_teamc/TeamC/user-api/target/classes/com/vegas/userapi/service/UserService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.vegas.userapi.repository.UserRepository.findTop1OrderByIdDesc()! No property desc found for type Integer! Traversed path: UserEntity.id.
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userRepository': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.vegas.userapi.repository.UserRepository.findTop1OrderByIdDesc()! No property desc found for type Integer! Traversed path: UserEntity.id.
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional com.vegas.userapi.repository.UserRepository.findTop1OrderByIdDesc()! No property desc found for type Integer! Traversed path: UserEntity.id.
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property desc found for type Integer! Traversed path: UserEntity.id.
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.822 s - in com.vegas.userapi.UserApiApplicationTests
