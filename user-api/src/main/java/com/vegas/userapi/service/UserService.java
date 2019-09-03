@@ -15,13 +15,15 @@ public class UserService {
 	private final UserRepository userRepository;
 	public void saveUserData(User user) {
 		UserEntity userWithMaxId = userRepository.findTopByOrderByIdDesc();
-		/*Optional<UserEntity> entityOpt = userRepository.findTopByOrderByIdDesc();
-		if(entityOpt.isPresent()){
-			userWithMaxId = entityOpt.get();
-		}*/
+		
 
 		UserEntity userentity = new UserEntity();
-		userentity.setId(userWithMaxId.getId() + 1);
+		if(userWithMaxId==null) {
+			userentity.setId(1);
+		}
+		else {
+			userentity.setId(userWithMaxId.getId() + 1);
+		}
 		userentity.setName(user.getName());
 		userentity.setEmailAddress(user.getEmailAddress());
 		userentity.setAge(user.getAge());
