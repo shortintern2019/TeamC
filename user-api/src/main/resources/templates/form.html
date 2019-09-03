@@ -1,30 +1,18 @@
-<form action="/sign_up" method="get">
-    <ul>
-        <li>
-            <label> name:</label><br>
-            <input type="text" name="name">
-        </li>
-        <li>
-            <label> email:</label><br>
-            <input type="text" name="email">
-        </li>
-
-        <li>
-            <label> age:</label><br>
-            <input type="text" name="age">
-        </li>
-
-        <li>
-            <label> body type :</label><br>
-            <input type="text" name="body_type">
-        </li>
-
-        <li>
-            <label> height type :</label><br>
-            <input type="text" name="height_type">
-        </li>
-
-
-    </ul>
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+    <form action="#" th:action="@{/sign_up}" th:object="${user}" method="post">
+    	<p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>email-address: <input type="text" th:field="*{emailAddress}" /></p>
+        <p>age: <input type="text" th:field="*{age}" /></p>
+        <p>bodyType: <input type="text" th:field="*{bodyType}" /></p>
+        <p>heightType: <input type="text" th:field="*{heightType}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
