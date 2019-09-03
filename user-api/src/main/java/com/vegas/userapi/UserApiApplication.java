@@ -9,8 +9,6 @@ public class UserApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserApiApplication.class, args);
-		UserEntity userEntity;
-		userEntity.set
 	}
 
 }
