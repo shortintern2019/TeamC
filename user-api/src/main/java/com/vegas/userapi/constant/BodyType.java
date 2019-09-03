@@ -1,10 +1,10 @@
 package com.vegas.userapi.constant;
 
 public enum BodyType {
-    Slim(1),
-    Normal(2),
-    Chubby(3),
-    ExtraSize(4);
+    SLIM(1),
+    NORMAL(2),
+    CHUBBY(3),
+    EXTRA_SIZE(4);
 
     private int id;
 
