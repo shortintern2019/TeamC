@@ -1,6 +1,0 @@
-com/vegas/userapi/modeldto/User.class
-com/vegas/userapi/repository/UserRepository.class
-com/vegas/userapi/UserApiApplication.class
-com/vegas/userapi/controller/UserController.class
-com/vegas/userapi/repository/UserEntity.class
-com/vegas/userapi/service/UserService.class
