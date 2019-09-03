@@ -1,7 +1,6 @@
 package com.vegas.userapi.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vegas.userapi.modeldto.User;
@@ -16,7 +15,7 @@ public class UserService {
 	private final UserRepository userRepository;
 	public void saveUserData(User user) {
 		UserEntity userWithMaxId = new UserEntity();
-		Optional<UserEntity> entityOpt = userRepository.findTop1OrOrderByIdDesc();
+		Optional<UserEntity> entityOpt = userRepository.findTopOrderByIdDesc();
 		if(entityOpt.isPresent()){
 			userWithMaxId = entityOpt.get();
 		}

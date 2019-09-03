@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
-    Optional<UserEntity> findTop1OrOrderByIdDesc();
+    Optional<UserEntity> findTopOrderByIdDesc();
 }

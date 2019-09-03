@@ -28,6 +28,6 @@ public class UserEntity implements Serializable {
 	@Column(name = "cd_body")
 	Integer bodyType;
 
-	@Column(name = "cd_hight")
+	@Column(name = "cd_height")
 	Integer heightType;
 }
