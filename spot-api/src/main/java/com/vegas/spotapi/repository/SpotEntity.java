@@ -11,12 +11,16 @@ import java.io.Serializable;
 @Table(name = "spot")
 @Data
 public class SpotEntity implements Serializable {
+
     @Column(name="id_seq")
     @Id
     Integer id;
 
     @Column(name="name")
     String name;
+
+    @Column(name="longitude")
+    Float longitude;
 
     @Column(name="latitude")
     Float latitude;

@@ -26,6 +26,7 @@ public class SpotService {
             Spot spot = new Spot();
             spot.setName(spotEntity.getName());
             spot.setLatitude(spotEntity.getLatitude());
+            spot.setLongitude(spotEntity.getLongitude());
             spot.setSpotType(spotEntity.getType());
             spot.setDescription(spotEntity.getDescription());
             spot.setUrl(spotEntity.getUrl());
