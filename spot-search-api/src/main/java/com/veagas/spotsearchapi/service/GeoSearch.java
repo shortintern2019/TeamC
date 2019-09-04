@@ -2,12 +2,14 @@ package com.veagas.spotsearchapi.service;
 
 import com.veagas.spotsearchapi.modeldto.Geolocation;
 import com.veagas.spotsearchapi.modeldto.Search;
+import com.veagas.spotsearchapi.modeldto.Spot;
 import com.veagas.spotsearchapi.repository.SpotEntity;
 import com.veagas.spotsearchapi.repository.SpotRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,16 +18,18 @@ public class GeoSearch {
     private final SpotRepository spotRepository;
     private final RestTemplate restTemplate;
 
-    public Integer findSpotId(Integer spotType, Geolocation geolocation){
+    public List<Spot> findSpotInfo(Integer spotType, Geolocation geolocation){
         List<SpotEntity> spots = spotRepository.findAllBySpotType(spotType);
-        Integer spotId = 0;
+        List<Spot> result = new ArrayList<>();
+        String url;
         for(SpotEntity spot : spots){
             double distance = calcDistance(geolocation.getLatitude(), geolocation.getLongitude(), spot.getLatitude(), spot.getLongitude());
             if(distance >= 3000){
-                 spotId = spot.getId();
+                 url = "http://localhost:8081/spot?spotId={" + spot.getId() + "}";
+                 result.add(restTemplate.getForObject(url, Spot.class));
             }
         }
-        return spotId;
+        return result;
     }
 
     public double calcDistance(float lat1, float long1, float lat2, float long2){
