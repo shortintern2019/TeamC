@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
+    <p th:each="recomendcloth : ${recomendcloth}">
+    <span th:text="${recomendcloth.imglink}">  </span>
+    </p>
+</body>
+</html>
