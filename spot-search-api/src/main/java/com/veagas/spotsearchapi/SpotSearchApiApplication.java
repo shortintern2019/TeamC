@@ -26,15 +26,4 @@ public class SpotSearchApiApplication {
 		return restTemplateBuilder.build();
 	}
 
-	@PostConstruct
-	private void initDb() {
-		String sqlStatements[] = {
-				"INSERT INTO SPOT(ID_SEQ,LATITUDE,LONGITUDE,CD_TYPE) VALUES(103,35.610835,139.631119,1)"
-		};
-
-		Arrays.asList(sqlStatements).forEach(sql -> {
-			jdbcTemplate.execute(sql);
-		});
-
-	}
 }
