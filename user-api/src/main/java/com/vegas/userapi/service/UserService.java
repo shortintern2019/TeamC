@@ -1,28 +1,29 @@
 package com.vegas.userapi.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import com.vegas.userapi.modeldto.User;
 import com.vegas.userapi.repository.UserEntity;
 import com.vegas.userapi.repository.UserRepository;
-
-import java.util.Optional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
 	private final UserRepository userRepository;
-	public void saveUserData(User user) {
+	@Transactional
+	public Integer saveUserData(User user) {
 		UserEntity userWithMaxId = userRepository.findTopByOrderByIdDesc();
-		
+		Integer generateId;
 
 		UserEntity userentity = new UserEntity();
 		if(userWithMaxId==null) {
 			userentity.setId(1);
+			generateId = 1;
 		}
 		else {
-			userentity.setId(userWithMaxId.getId() + 1);
+			generateId = userWithMaxId.getId() + 1;
+			userentity.setId(generateId);
 		}
 		userentity.setName(user.getName());
 		userentity.setEmailAddress(user.getEmailAddress());
@@ -30,6 +31,7 @@ public class UserService {
 		userentity.setBodyType(user.getBodyType());
 		userentity.setHeightType(user.getHeightType());
 		userRepository.save(userentity);
+		return generateId;
 	}
 	
 }

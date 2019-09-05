@@ -19,13 +19,14 @@ public class UserController {
     	 model.addAttribute("user",new User());
         return "form";
     }
-    @PostMapping("/index")
-    public String completeSignUp(@ModelAttribute User user) {
-    	userService.saveUserData(user);
+    @PostMapping("/sing_up")
+    public String completeSignUp(@ModelAttribute User user, Model model) {
+		Integer generatedId = userService.saveUserData(user);
+    	model.addAttribute("userId", generatedId);
     	return "index";
     }
 	@GetMapping("/index")
-	public String completeSignUp() {
+	public String indexPage() {
 		return "index";
 	}
 }

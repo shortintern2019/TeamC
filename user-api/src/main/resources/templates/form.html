@@ -16,14 +16,18 @@
 <body>
 <nav>
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Logo</a>
+        <img src="../images/logo.png" width="60">
+        <a href="http://localhost:8080/index" class="brand-logo">SpotKirumon</a>
+        <ul id="nav-mobile" class="right">
+            <li><a>A place where you can find your weekend getaway</a></li>
+        </ul>
     </div>
 </nav>
 
 <center><h4><font color="#f08080">Tell Us About Yourself</font></h4></center>
 <div class="container">
 
-    <form action="#" th:action="@{/index}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/sing_up}" th:object="${user}" method="post">
         <p>Name <input type="text" th:field="*{name}"/></p>
         <p>Email Address <input type="text" th:field="*{emailAddress}"/></p>
         <p>Age <input type="text" th:field="*{age}"/></p>
@@ -38,8 +42,6 @@
             </select>
         </div>
 
-
-        <!--<p>Height Type <input type="text" th:field="*{heightType}"/></p>-->
         <p>Height Type</p>
         <div class="input-field col s12">
             <select th:field="*{heightType}">
