@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="materialize-red">
             <header>
                 <input type="text" id="search_area">
                 <button type="button" id="search_button">検索</button>
@@ -20,27 +20,16 @@
                 </ul>
             </header>
             <div class="main">
-                <h2>main title</h2>
-                <p>maint titleの副題</p>
-                <section class="section1">
-                    <h2>section1 title</h2>
-                    <p>section1の内容</p>
-                </section>
-                <section class="section2">
-                    <h2>section2 title</h2>
-                    <p>section2の内容</p>
-                </section>
-                <section class="section3">
-                    <h2>section3 title</h2>
-                    <p>section3の内容</p>
-                </section>
-                <section class="section4">
-                    <h2>section4 title</h2>
-                    <p>section4の内容</p>
+                <section  class="recomendspot">
+                    <p th:each="spotimage : ${spot.images}">
+                        <img class="spotimage" th:src="${spotimage}"/>
+                    </p>
+                    <p class="spotdiscrepiton" th:text="${spot.description}"></p>
                 </section>
                 <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
-    			 <p th:each="recomendcloth : ${recomendcloth}">
-    				<img th:src="${recomendcloth.imglink}"/>  
+    			 <p class=""  th:each="recomendcloth : ${recomendcloth}">
+    				<img th:src="${recomendcloth.imglink}"/>
+                     
     			 </p>
             </div>
             <footer>
