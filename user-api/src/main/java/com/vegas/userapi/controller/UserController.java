@@ -19,7 +19,7 @@ public class UserController {
     	 model.addAttribute("user",new User());
         return "form";
     }
-    @PostMapping("/sign_up")
+    @PostMapping("/index")
     public String completeSignUp(@ModelAttribute User user) {
     	userService.saveUserData(user);
     	return "index";
