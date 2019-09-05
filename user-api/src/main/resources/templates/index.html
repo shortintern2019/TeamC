@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-      <meta charset="UTF-8">
-      <title>お出かけを楽しくする</title>
-      <link rel="stylesheet" type="text/css" href="./node_modules/materialize-css/dist/css/materialize.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
-  <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/index" class="brand-logo center">spot kirumon</a>
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a>スポットを見る</a></li>
-          </ul>
-      </div>
-    </nav>
+<head>
+    <meta charset="UTF-8">
+    <title>index page</title>
+    <link rel="stylesheet" type="text/css" href="./node_modules/materialize-css/dist/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var userId = /*[[${userId}]]*/ '0';
+        /*]]>*/
 
-    <h3 class="brand-logo center">スポットを検索する</h3>
 
-    <form action="#" th:action="@{/search}" th:object="${spot-type}" method="get">
-      <label for="site-search">スポットを探す:</label>
-      <input type="search" id="site-search" name="q" aria-label="Search through site content">
-        <p th:text="${spots.name}"></p>
-      <a class="waves-effect waves-light btn-small" type="submit">Search</a>
-    </form>
-  </body>
+        $(document).ready(function () {
+
+            $('#button').click(function (e) {
+                var inputvalue = $("#input").val();
+                if (userId === '0' || userId === null) {
+                    //  block of code to be executed if the condition is true
+                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue);
+                } else {
+                    //  block of code to be executed if the condition is false
+                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&userId=" + userId);
+                }
+
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <img src="../images/logo.png" width="60">
+        <a href="http://localhost:8080/index" class="brand-logo">SpotKirumon</a>
+        <ul id="nav-mobile" class="right">
+            <li><a>A place where you can find your weekend getaway</a></li>
+            <li><a href="/sign_up">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
+
+<h4 class="brand-logo center"><font color="#f08080">Where do you want to go?</font></h4>
+
+<div class="container">
+    <div class="topnav">
+        <input id="input" placeholder="二子玉川、 横浜、 ディズニーランド...">
+        <button class="waves-effect waves-light btn" type="button" id="button">search</button>
+    </div>
+</div>
+
+</body>
 </html>
