@@ -7,6 +7,7 @@ public class Spot {
     String spotType;
     String description;
     String url;
+    List<String> images;
 
     public String getUrl() {
         return url;
@@ -15,8 +16,6 @@ public class Spot {
     public void setUrl(String url) {
         this.url = url;
     }
-
-    List<String> images;
 
     public String getName() {
         return name;
