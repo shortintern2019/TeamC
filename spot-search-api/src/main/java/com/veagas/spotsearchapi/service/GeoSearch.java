@@ -18,15 +18,18 @@ public class GeoSearch {
     private final SpotRepository spotRepository;
     private final RestTemplate restTemplate;
 
-    public List<Spot> findSpotInfo(String spotType, Geolocation geolocation){
-        Integer type = ActivityType.valueOf(spotType).getId();
-        List<SpotEntity> spots = spotRepository.findByType(type);
+    public List<Spot> findSpotInfo(Integer spotType, Geolocation geolocation){
+        List<SpotEntity> spots = spotRepository.findByType(spotType);
         List<Spot> result = new ArrayList<>();
+        Spot spot;
+        String type;
         String url;
-        for(SpotEntity spot : spots){
-            double distance = calcDistance(geolocation.getLatitude(), geolocation.getLongitude(), spot.getLatitude(), spot.getLongitude());
+        for(SpotEntity spotEntity : spots){
+            double distance = calcDistance(geolocation.getLatitude(), geolocation.getLongitude(), spotEntity.getLatitude(), spotEntity.getLongitude());
             if(distance >= 3000){
-                 url = "http://localhost:8081/spot?spotId={" + spot.getId() + "}";
+                 url = "http://localhost:8081/spot?spotId={" + spotEntity.getId() + "}";
+                 spot = restTemplate.getForObject(url, Spot.class);
+                 type = ActivityType.getById(spot.getSpotType()).getName();
                  result.add(restTemplate.getForObject(url, Spot.class));
             }
         }

@@ -23,6 +23,6 @@ public class SpotEntity implements Serializable {
     Float longitude;
 
     @Column(name = "cd_type")
-    String type;
+    Integer type;
 
 }

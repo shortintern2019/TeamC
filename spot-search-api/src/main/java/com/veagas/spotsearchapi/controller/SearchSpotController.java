@@ -20,7 +20,7 @@ public class SearchSpotController {
     private final ExternalApiCaller externalApiCaller;
     private final GeoSearch geoSearch;
     @GetMapping("/search")
-    public String getSearchKeyWordAndSpotType(@RequestParam(name = "keyWord")String keyWord, @RequestParam(name = "spotType") String spotType, @RequestParam(name = "userId") Integer userId, ModelMap modelMap){
+    public String getSearchKeyWordAndSpotType(@RequestParam(name = "keyWord")String keyWord, @RequestParam(name = "spotType") Integer spotType, @RequestParam(name = "userId") Integer userId, ModelMap modelMap){
         Geolocation geolocation = externalApiCaller.findGeolocationByKeyWord(keyWord);
         List<Spot> spots = geoSearch.findSpotInfo(spotType, geolocation);
         modelMap.addAttribute("spots", spots);
