@@ -26,10 +26,10 @@ public class SpotDetailController {
     public String SpotDetail(@RequestParam(name="spotid", required=false, defaultValue="1") Integer spotid,
     	@RequestParam(name="userid", required=false, defaultValue="1") Integer userid ,Model model) {
     	 RestTemplate restTemplate = new RestTemplate();
-        //Spot spot = restTemplate.getForObject("http://local/8081/spot?spotid="+spotid.toString(), Spot.class);
+        Spot spot = restTemplate.getForObject("http://local/8081/spot?spotid="+spotid.toString(), Spot.class);
     	 List<ClothEntity> recomendCloth=clothservice.serchClothIdWithSpotId(spotid, userid);
         model.addAttribute("recomendcloth",recomendCloth);
-        //model.addAttribute("spot",spot);
+        model.addAttribute("spot",spot);
         return "spot";
     }
     
