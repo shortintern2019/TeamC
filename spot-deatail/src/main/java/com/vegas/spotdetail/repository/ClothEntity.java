@@ -17,12 +17,12 @@ public class ClothEntity implements Serializable {
 	Integer id;
 
 	@Column(name = "cd_body")
-	Integer cd_body;
+	Integer cdbody;
 
 	@Column(name = "cd_height")
-	Integer cd_height;
+	Integer cdheight;
 
 	@Column(name = "img_link")
-	String img_link;
+	String imglink;
 
 }
