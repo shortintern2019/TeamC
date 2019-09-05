@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class SearchSpotController {
     private final ExternalApiCaller externalApiCaller;
     private final GeoSearch geoSearch;
     @GetMapping("/search")
-    public String getSearchKeyWordAndSpotType(@RequestParam(name = "keyWord")String keyWord, @RequestParam(name = "spotType") Integer spotType, @RequestParam(name = "userId") Integer userId, ModelMap modelMap){
-        Geolocation geolocation = externalApiCaller.findGeolocationByKeyWord(keyWord);
+    public String getSearchKeyWordAndSpotType(@RequestParam(name = "keyWord")String output, @RequestParam(name = "spotType", required = false) Integer spotType, @RequestParam(name = "userId", required = false) Integer userId, ModelMap modelMap){
+        Geolocation geolocation = externalApiCaller.findGeolocationByKeyWord(output);
         List<Spot> spots = geoSearch.findSpotInfo(spotType, geolocation);
         modelMap.addAttribute("spots", spots);
         return "search_result";

@@ -1,10 +1,13 @@
 package com.veagas.spotsearchapi.modeldto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Geolocation {
+    @JsonProperty("lat")
     Float latitude;
+    @JsonProperty("lon")
     Float longitude;
 
     public Float getLongitude() {

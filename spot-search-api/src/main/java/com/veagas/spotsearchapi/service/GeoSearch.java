@@ -26,11 +26,11 @@ public class GeoSearch {
         String url;
         for(SpotEntity spotEntity : spots){
             double distance = calcDistance(geolocation.getLatitude(), geolocation.getLongitude(), spotEntity.getLatitude(), spotEntity.getLongitude());
-            if(distance >= 3000){
-                 url = "http://localhost:8081/spot?spotId={" + spotEntity.getId() + "}";
+            if(distance <= 3000){
+                 url = "http://localhost:8081/spot?spotId=" + spotEntity.getId();
                  spot = restTemplate.getForObject(url, Spot.class);
-                 type = ActivityType.getById(spot.getSpotType()).getName();
-                 result.add(restTemplate.getForObject(url, Spot.class));
+                 //type = ActivityType.getById(spot.getSpotType()).getName();
+                 result.add(spot);
             }
         }
         return result;
