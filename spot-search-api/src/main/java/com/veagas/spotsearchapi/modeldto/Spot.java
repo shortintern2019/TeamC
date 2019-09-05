@@ -4,10 +4,18 @@ import java.util.List;
 
 public class Spot {
     String name;
-    float latitude;
-    float longitude;
     String spotType;
     String description;
+    String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     List<String> images;
 
     public String getName() {
@@ -16,22 +24,6 @@ public class Spot {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public float getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(float latitude) {
-        this.latitude = latitude;
-    }
-
-    public float getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(float longitude) {
-        this.longitude = longitude;
     }
 
     public String getSpotType() {

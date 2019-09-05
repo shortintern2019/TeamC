@@ -1,7 +1,7 @@
 package com.veagas.spotsearchapi.service;
 
+import com.veagas.spotsearchapi.constant.ActivityType;
 import com.veagas.spotsearchapi.modeldto.Geolocation;
-import com.veagas.spotsearchapi.modeldto.Search;
 import com.veagas.spotsearchapi.modeldto.Spot;
 import com.veagas.spotsearchapi.repository.SpotEntity;
 import com.veagas.spotsearchapi.repository.SpotRepository;
@@ -18,8 +18,9 @@ public class GeoSearch {
     private final SpotRepository spotRepository;
     private final RestTemplate restTemplate;
 
-    public List<Spot> findSpotInfo(Integer spotType, Geolocation geolocation){
-        List<SpotEntity> spots = spotRepository.findAllBySpotType(spotType);
+    public List<Spot> findSpotInfo(String spotType, Geolocation geolocation){
+        Integer type = ActivityType.valueOf(spotType).getId();
+        List<SpotEntity> spots = spotRepository.findByType(type);
         List<Spot> result = new ArrayList<>();
         String url;
         for(SpotEntity spot : spots){

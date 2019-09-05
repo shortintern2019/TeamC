@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface SpotRepository extends CrudRepository<SpotEntity, Integer> {
-    List<SpotEntity> findAllBySpotType(Integer spotType);
+    List<SpotEntity> findByType(Integer spotType);
 }
