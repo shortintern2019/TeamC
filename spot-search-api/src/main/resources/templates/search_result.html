@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>検索結果 </title>
+    <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <input type="text" id="search_area">
+        <button type="button" id="search_button">検索</button>
+        <h1>検索結果</h1>
+        <ul>
+            <li><a href="https://rakuten.com">リンク</a></li>
+        </ul>
+    </header>
+    <div class="main">
+        <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
+        <p th:each="spot : ${spots}">
+            <span th:each="spot_image : ${spot.images}"><img th:src="${spot_image}"/></span>
+        </p>
+    </div>
+    <footer>
+        <p><strong>©︎ Team Vegas All right reserved.</strong></p>
+    </footer>
+</div>
+</body>
