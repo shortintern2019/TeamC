@@ -26,9 +26,9 @@
                     </p>
                     <p class="spotdiscrepiton" th:text="${spot.description}"></p>
                 </section>
-                <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
-    			 <p class=""  th:each="recomendcloth : ${recomendcloth}">
-    				<img th:src="${recomendcloth.imglink}"/>
+                <!--  <p th:text="'Hello, ' + ${spotId} +${userid} '!'" />-->
+    			 <p class=""  th:each="recommendcloth : ${recommendedCloth}">
+    				<img th:src="${recommendcloth.imglink}"/>
                      
     			 </p>
             </div>

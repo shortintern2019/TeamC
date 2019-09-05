@@ -8,5 +8,5 @@ import com.vegas.spotdetail.repository.ClothSpotEntity;
 @Repository
 
 public interface ClothSpotRepository extends CrudRepository<ClothSpotEntity, Integer> {
-    List<ClothSpotEntity> findBySpotid( Integer spotId);
+    List<ClothSpotEntity> findBySpotId(Integer spotId);
 }

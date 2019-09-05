@@ -24,4 +24,8 @@ public class UserController {
     	userService.saveUserData(user);
     	return "index";
     }
+	@GetMapping("/index")
+	public String completeSignUp() {
+		return "index";
+	}
 }
