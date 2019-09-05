@@ -2,31 +2,64 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Getting Started: Handling Form Submission</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="./node_modules/materialize-css/dist/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">Logo</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
-            </ul>
+<nav>
+    <div class="nav-wrapper">
+        <img src="../images/logo.png" width="60">
+        <a href="http://localhost:8080/index" class="brand-logo">SpotKirumon</a>
+        <ul id="nav-mobile" class="right">
+            <li><a>A place where you can find your weekend getaway</a></li>
+        </ul>
+    </div>
+</nav>
+
+<center><h4><font color="#f08080">Tell Us About Yourself</font></h4></center>
+<div class="container">
+
+    <form action="#" th:action="@{/sing_up}" th:object="${user}" method="post">
+        <p>Name <input type="text" th:field="*{name}"/></p>
+        <p>Email Address <input type="text" th:field="*{emailAddress}"/></p>
+        <p>Age <input type="text" th:field="*{age}"/></p>
+        <p>Body Type</p>
+        <div class="input-field col s12">
+            <select th:field="*{bodyType}">
+                <option value="">Choose your option</option>
+                <option value="1">Skinny</option>
+                <option value="2">Normal</option>
+                <option value="3">Chubby</option>
+                <option value="4">Extra Size</option>
+            </select>
         </div>
-    </nav>
-	<h1>Form</h1>
-    <form action="#" th:action="@{/index}" th:object="${user}" method="post">
-    	<p>Name: <input type="text" th:field="*{name}" /></p>
-        <p>email-address: <input type="text" th:field="*{emailAddress}" /></p>
-        <p>age: <input type="text" th:field="*{age}" /></p>
-        <p>bodyType: <input type="text" th:field="*{bodyType}" /></p>
-        <p>heightType: <input type="text" th:field="*{heightType}" /></p>
+
+        <p>Height Type</p>
+        <div class="input-field col s12">
+            <select th:field="*{heightType}">
+                <option value="">Choose your option</option>
+                <option value="1">~149</option>
+                <option value="2">150~159</option>
+                <option value="3">160~169</option>
+                <option value="4">170~</option>
+            </select>
+        </div>
+
         <p>
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset" />
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+            <input type="reset" class="waves-effect waves-light btn"/>
         </p>
     </form>
+</div>
 </body>
 </html>
