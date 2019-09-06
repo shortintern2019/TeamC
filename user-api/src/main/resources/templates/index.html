@@ -11,6 +11,7 @@
         var userId = /*[[${userId}]]*/ '0';
         /*]]>*/
 
+        var type = document.getElementsByName('spotType')
 
         $(document).ready(function () {
 
@@ -18,10 +19,10 @@
                 var inputvalue = $("#input").val();
                 if (userId === '0' || userId === null) {
                     //  block of code to be executed if the condition is true
-                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue);
+                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + type(0));
                 } else {
                     //  block of code to be executed if the condition is false
-                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&userId=" + userId);
+                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + type(0) + "&userId=" + userId);
                 }
 
             });
@@ -47,8 +48,47 @@
 <div class="container">
     <div class="topnav">
         <input id="input" placeholder="二子玉川、 横浜、 ディズニーランド...">
+        <form action="#">
+            <p>
+                <label>
+                    <input name="spotType" type="radio" value="1"/>
+                    <span>Restaurant</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="2"/>
+                    <span>Solo Travelling</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="3"/>
+                    <span>Sports</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="4"/>
+                    <span>Amusement</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="5"/>
+                    <span>Driving</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="6"/>
+                    <span>Shopping</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="7"/>
+                    <span>Girls Party</span>
+                </label>
+                <label>
+                    <input name="spotType" type="radio" value="8"/>
+                    <span>Date</span>
+                </label>
+
+                </label>
+            </p>
+        </form>
         <button class="waves-effect waves-light btn" type="button" id="button">search</button>
     </div>
+
 </div>
 
 </body>
