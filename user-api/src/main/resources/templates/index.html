@@ -17,13 +17,16 @@
 
             $('#button').click(function (e) {
                 var inputvalue = $("#input").val();
-                if (userId === '0' || userId === null) {
-                    //  block of code to be executed if the condition is true
-                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + type(0));
-                } else {
-                    //  block of code to be executed if the condition is false
-                    window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + type(0) + "&userId=" + userId);
-                }
+                $('button').click(function() {
+                    var r = $('input[name="spotType"]:checked').val();
+                    if (userId === '0' || userId === null) {
+                        //  block of code to be executed if the condition is true
+                        window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + r);
+                    } else {
+                        //  block of code to be executed if the condition is false
+                        window.location.replace("http://localhost:8083/search?keyWord=" + inputvalue + "&spotType=" + r + "&userId=" + userId);
+                    }
+                })
 
             });
         });
