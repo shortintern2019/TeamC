@@ -33,7 +33,7 @@
                    <p class="spotdiscreption_back" th:text="${spot.description}">  </p>
                 <!--  <p th:text="'Hello, ' + ${spotId} +${userid} '!'" />-->
                 <section class="clothing_section">
-                    <h2 class=".materialize-red-text.text-lighten-5">オススメコーデ</h2>
+                    <h4 class=".materialize-red-text.text-lighten-5">Recommended Clothes</h4>
     			   <div class="slider"> 
     			       
     			   		<img th:each="recommendcloth : ${recommendedCloth}" th:src="${recommendcloth.imglink}"/>
