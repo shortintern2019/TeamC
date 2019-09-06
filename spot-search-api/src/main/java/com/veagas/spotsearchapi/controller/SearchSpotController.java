@@ -22,6 +22,7 @@ public class SearchSpotController {
         Geolocation geolocation = externalApiCaller.findGeolocationByKeyWord(output);
         List<Spot> spots = geoSearch.findSpotInfo(spotType, geolocation);
         modelMap.addAttribute("spots", spots);
+        modelMap.addAttribute("userId", userId);
         return "search_result";
     }
 }
