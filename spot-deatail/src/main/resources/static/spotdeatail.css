@@ -73,12 +73,6 @@ section.clothing_section{
     position: relative;
 }
 
-p.slider img{
-	width: 200px;
-	height: 300px;
-	margin: 10px;
-	margin-left:30px;
-}
 
 p.clothimg img{
 	width: 400px;
@@ -99,3 +93,9 @@ footer{
 	clear:both;
 }
 
+div.slider img{
+	width: 100px;
+	height: 400px;
+	margin: 10px;
+	margin-left:30px;
+}
