@@ -88,14 +88,23 @@ p.clothimg img{
     border-bottom-left-radius: 10px 10px;
     border-top-right-radius: 10px 10px;
     border-bottom-right-radius: 10px 10px;
+    margin-top: 100px;
 }
 footer{
 	clear:both;
 }
 
+div.slider{
+	width: 50vw;
+	margin: auto;
+}
+
 div.slider img{
 	width: 100px;
 	height: 400px;
-	margin: 10px;
+	margin: auto;
 	margin-left:30px;
+	object-fit: cover;
+	margin-button:200px;
+	padding-button:200px;
 }
