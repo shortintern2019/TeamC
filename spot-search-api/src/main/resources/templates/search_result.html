@@ -6,7 +6,23 @@
     <title>検索結果 </title>
     <link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="spot.js"></script>
+    <script   th:inline="javascript">
+        /*<![CDATA[*/
+        var userId = /*[[${userId}]]*/ '0';
+        /*]]>*/
+
+        function search_result (spotId) {
+            if (userId === '0' || userId === null) {
+                //  block of code to be executed if the condition is true
+                window.location.replace("http://localhost:8082/spot?spotId=" + spotId);
+            } else {
+                //  block of code to be executed if the condition is false
+                window.location.replace("http://localhost:8083/search?keyWord=" + spotId + "&userId=" + userId);
+            }
+        }
+
+    </script>
+
 </head>
 <body>
 
@@ -16,27 +32,23 @@
         <a href="http://localhost:8080/index" class="brand-logo">SpotKirumon</a>
         <ul id="nav-mobile" class="right">
             <li><a>A place where you can find your weekend getaway</a></li>
-            <li><input type="text" id="search_area"></li>
-            <li><button class="waves-effect waves-light btn-small" type="button" id="button">search</button></li>
+<!--            <li><input type="text" id="search_area"></li>-->
+<!--            <li><button class="waves-effect waves-light btn-small" type="button" id="button">search</button></li>-->
         </ul>
     </div>
 </nav>
 
 <div class="container">
     <header>
-<!--        <input type="text" id="search_area">-->
-<!--        <button class="waves-effect waves-light btn" type="button" id="button">search</button>-->
         <h1 class="center">Search Result</h1>
-<!--        <ul>-->
-<!--            <li><a href="https://rakuten.com">Link</a></li>-->
-<!--        </ul>-->
     </header>
     <div class="main">
         <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
         <p th:each="spot : ${spots}">
             <span th:each="spot_name : ${spot.name}"></span>
             <span th:each="spot_description : ${spot.description}"></span>
-            <span th:each="spot_image : ${spot.images}"><img th:src="${spot_image}" th:onclick="|search_result('${command['class'].simpleName}', '${spot.spotId}')|"/></span>
+            <span th:each="spot_image : ${spot.images}"><img th:src="${spot_image}" th:onclick="search_result('[[${spot.spotId}]]')"/></span>
+
         </p>
     </div>
     <footer>

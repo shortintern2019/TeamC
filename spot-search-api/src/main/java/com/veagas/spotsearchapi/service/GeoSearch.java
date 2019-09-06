@@ -23,11 +23,14 @@ public class GeoSearch {
         List<Spot> result = new ArrayList<>();
         Spot spot;
         String url;
+        Integer id;
         for(SpotEntity spotEntity : spots){
             double distance = calcDistance(geolocation.getLatitude(), geolocation.getLongitude(), spotEntity.getLatitude(), spotEntity.getLongitude());
             if(distance <= 3000){
-                 url = "http://localhost:8081/spot?spotId=" + spotEntity.getId();
+                id = spotEntity.getId();
+                 url = "http://localhost:8081/spot?spotId=" + id;
                  spot = restTemplate.getForObject(url, Spot.class);
+                 spot.setSpotId(id);
                  result.add(spot);
             }
         }
