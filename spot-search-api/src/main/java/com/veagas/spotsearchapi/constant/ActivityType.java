@@ -11,8 +11,8 @@ public enum ActivityType {
     AMUSEMENT(4, "アミューズメント"),
     DRIVING(5, "ドライブ"),
     SHOPPING(6, "ショッピング"),
-    GIRLS_PARTY(7, "女子会"),
-    DATE(8, "デート");
+    DATE(7, "デート"),
+    GIRLS_PARTY(8, "女子会");
 
     @Getter
     private Integer id;
