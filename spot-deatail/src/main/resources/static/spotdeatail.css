@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+div.container_1{
+	width: 80%;
+	margin:auto;
+	
+}
+
+h1{
+	color:red;
+}
+
+section.recomendspot{
+}
+
+img.spotimage{
+	width: 500px;
+	height: 400px;
+	padding-bottom: 40px;
+    padding-top: 40px;
+    padding-right: 90px;
+    padding-left: 90px;
+	background-color: black;
+	border:10px;
+	margin-right: 20px;
+	display:block;
+	box-shadow: 6px 6px 6px 6px gray;
+    border-top-left-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    float: left;
+    margin-left: 150px;
+    margin-bottom: 100px;
+    
+}
+
+h2.spot_title{
+	font-size:1.8em;
+	color: lightpink;
+	padding-bottom: 0px;
+}
+
+ p.spotdiscreption_back{
+	display: inline-block;
+	/*margin 80px;*/
+	padding-bottom:30px;
+	padding-top: 30px;
+	font-size: 1.6em;
+	/*width: 300px;
+	height: 400px;*/ 
+	width: 500px;
+   height: 300px;
+	background-color: lightgray;
+	padding-top:60px;
+	padding-left:40px;
+	padding-right:40px;
+	overflow: scroll;
+}
+
+/*span.spotdiscrepiton{
+	width: 700px;
+   height: 300px;
+   margin:0px;
+   font-size: 1.6em;
+	
+}*/
+
+section.clothing_section{
+	clear:both;
+}
+.slider {
+    position: relative;
+}
+
+p.slider img{
+	width: 200px;
+	height: 300px;
+	margin: 10px;
+	margin-left:30px;
+}
+
+p.clothimg img{
+	width: 400px;
+	height: 300px;
+	padding-left: 10px;
+	border: 15px solid lightcoral;
+	margin: 10px;
+	margin-left:30px;
+	float: left;
+	display: block;
+	box-shadow: 6px 6px 6px 6px gray;
+    border-top-left-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    border-top-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+}
+footer{
+	clear:both;
+}
+
