@@ -8,18 +8,19 @@ div.container_1{
 
 h1{
 	color:red;
+	margin-bottom: 70px;
 }
 
 section.recomendspot{
 }
 
 img.spotimage{
-	width: 500px;
-	height: 400px;
+	width: 400px;
+	height: 250px;
 	padding-bottom: 40px;
     padding-top: 40px;
     padding-right: 90px;
-    padding-left: 90px;
+    padding-left: 20px;
 	background-color: black;
 	border:10px;
 	margin-right: 20px;
@@ -39,20 +40,20 @@ h2.spot_title{
 	font-size:1.8em;
 	color: lightpink;
 	padding-bottom: 0px;
+	height: 25px;
+	margin-bottom: 0px;
 }
 
  p.spotdiscreption_back{
 	display: inline-block;
 	/*margin 80px;*/
 	padding-bottom:30px;
-	padding-top: 30px;
+	padding-top: 0px;
 	font-size: 1.6em;
-	/*width: 300px;
-	height: 400px;*/ 
 	width: 500px;
-   height: 300px;
+  height: 225px;
 	background-color: lightgray;
-	padding-top:60px;
+	padding-top:0px;
 	padding-left:40px;
 	padding-right:40px;
 	overflow: scroll;
