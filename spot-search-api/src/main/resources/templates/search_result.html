@@ -8,7 +8,6 @@
     <script   th:inline="javascript">
         /*<![CDATA[*/
         var userId = /*[[${userId}]]*/ '0';
-        var spotId = /*[[${spot.spotId}}]]*/ '103';
         /*]]>*/
 
         function search_result (spotId) {
@@ -35,7 +34,7 @@
     <div class="main">
         <!--  <p th:text="'Hello, ' + ${spotid} +${userid} '!'" />-->
         <p th:each="spot : ${spots}">
-            <span th:each="spot_image : ${spot.images}"><img th:src="${spot_image}" th:onclick="search_result('${spot}')"/></span>
+            <span th:each="spot_image : ${spot.images}"><img th:src="${spot_image}" th:onclick="search_result('[[${spot.spotId}]]')"/></span>
         </p>
     </div>
     <footer>
