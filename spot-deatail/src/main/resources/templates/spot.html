@@ -24,7 +24,6 @@
           </ul>
     	</div>
 		</nav>
-
             <div class="main">
                 <section  class="recomendspot">
                     <span th:each="spotimage : ${spot.images}">
@@ -39,13 +38,20 @@
     			       
     			   		<img th:each="recommendcloth : ${recommendedCloth}" th:src="${recommendcloth.imglink}"/>
 				 </div>
+				 <script>$(function() {$('.slider').slick({
+            				autoplay:true,
+            				autoplaySpeed:5000,
+            				dots:true,
+        				});
+        				});
+				 </script>
     			 <p class="clothimg"  th:each="recommendcloth : ${recommendedCloth}">
     				<img th:src="${recommendcloth.imglink}"/>
     			 </p>
     			 </section>
             </div>
             <footer>
-                <p><strong>Copyright (C) Cosmos. All right reserved.</strong></p>
+                <p><strong>Team Vegas All right reserved.</strong></p>
             </footer>
         </div>
         
