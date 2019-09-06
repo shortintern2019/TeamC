@@ -1,5 +1,7 @@
 # TeamC
-This app is developed with SpringBoot. We tried micro-service-architecture.
+This app is developed with SpringBoot. If you submit a query of landscape name, it will recommend 
+
+We tried micro-service-architecture.
 
 ## how to use
 
